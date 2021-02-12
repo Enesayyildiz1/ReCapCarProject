@@ -1,5 +1,7 @@
 ﻿using BusinessLogic.Abstract;
+using BusinessLogic.Constants;
 using BusinessLogic.ValidationRules.FluentValidation;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.Dtos;
@@ -18,19 +20,19 @@ namespace BusinessLogic.Concrete
         {
             _carDal = carDal;
         }
-        public void Add(Car car)
+        public IResult Add(Car car)
         {
             CarValidator carValidator = new CarValidator();
             var result = carValidator.Validate(car);
             if (result.Errors.Count > 0)
             {
-                Console.WriteLine(result.Errors.FirstOrDefault().ToString());
+                return new ErrorResult(Messages.CarNameInvalid);
+               // Console.WriteLine(result.Errors.FirstOrDefault().ToString());
 
             }
-            else
-            {
-                _carDal.Add(car);
-            }
+             _carDal.Add(car);
+            return new SuccessResult(Messages.CarAdded);
+            
         }
 
         public void Delete(Car car)
@@ -38,14 +40,23 @@ namespace BusinessLogic.Concrete
             _carDal.Delete(car);
         }
 
-        public List<Car> GetAll()
+        public IDataResult<List<Car>> GetAll()
         {
-            return _carDal.GetAll();
+            if (DateTime.Now.Hour==19)
+            {
+                return new ErrorDataResult<List<Car>>("Sistem kapalı");
+            }
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),true,"Araçlar Listelendi.");
         }
 
-        public List<CarDetailDto> GetCarDetails()
+        public IDataResult<Car> GetById(int carId)
         {
-            return _carDal.GetCarDetails();
+            return new SuccessDataResult<Car>(_carDal.Get(p => p.Id == carId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
 
         public void Update(Car car)
