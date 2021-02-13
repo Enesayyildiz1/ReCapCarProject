@@ -9,11 +9,11 @@ namespace BusinessLogic.Abstract
 {
     public interface ICarService
     {
-       IDataResult< List<Car>> GetAll();
+        IDataResult< List<Car>> GetAll();
         IDataResult<Car> GetById (int carId);
         IResult Add(Car car);
-        void Delete(Car car);
-        void Update(Car car);
+        IResult Delete(Car car);
+        IResult Update(Car car);
         public IDataResult<List<CarDetailDto>> GetCarDetails();
     }
 }

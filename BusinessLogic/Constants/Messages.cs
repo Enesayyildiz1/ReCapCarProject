@@ -8,5 +8,8 @@ namespace BusinessLogic.Constants
     {
         public static string CarAdded = "Araç Eklendi";
         public static string CarNameInvalid = "Herhangi bir sorun oluştu.";
+
+       
+
     }
 }

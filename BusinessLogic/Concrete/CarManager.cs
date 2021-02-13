@@ -35,9 +35,10 @@ namespace BusinessLogic.Concrete
             
         }
 
-        public void Delete(Car car)
+        public IResult Delete(Car car)
         {
             _carDal.Delete(car);
+            return new SuccessResult("Araç silindi.");
         }
 
         public IDataResult<List<Car>> GetAll()
@@ -59,10 +60,10 @@ namespace BusinessLogic.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
 
-        public void Update(Car car)
+        public IResult Update(Car car)
         {
-           
             _carDal.Update(car);
+            return new SuccessResult("Araç başarıyla güncellendi.");
         }
     }
 }
