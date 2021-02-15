@@ -43,7 +43,7 @@ namespace BusinessLogic.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour==19)
+            if (DateTime.Now.Hour==11)
             {
                 return new ErrorDataResult<List<Car>>("Sistem kapalı");
             }

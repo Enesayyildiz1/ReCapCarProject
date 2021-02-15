@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{36DA6935-3DEB-4F79-B65E-33EE3EDA4ABD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{36DA6935-3DEB-4F79-B65E-33EE3EDA4ABD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{34553F35-8680-432A-8AC8-02BC82536B01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{34553F35-8680-432A-8AC8-02BC82536B01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{A6738198-7C37-4E3B-9FA2-A876DD89D6EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{A6738198-7C37-4E3B-9FA2-A876DD89D6EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{43466389-10D0-4FEA-830E-44D2D3F29C46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{43466389-10D0-4FEA-830E-44D2D3F29C46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{2643129E-D7F6-4627-AFE8-65F1EBD0B3B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{2643129E-D7F6-4627-AFE8-65F1EBD0B3B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WfUI", "WfUI\WfUI.csproj", "{9F22788D-3431-4AE4-9723-760C8EC6FF62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WfUI", "WfUI\WfUI.csproj", "{9F22788D-3431-4AE4-9723-760C8EC6FF62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{890EC9D3-1006-403D-989F-A19A4CAA9615}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{9F22788D-3431-4AE4-9723-760C8EC6FF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F22788D-3431-4AE4-9723-760C8EC6FF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F22788D-3431-4AE4-9723-760C8EC6FF62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{890EC9D3-1006-403D-989F-A19A4CAA9615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{890EC9D3-1006-403D-989F-A19A4CAA9615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{890EC9D3-1006-403D-989F-A19A4CAA9615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{890EC9D3-1006-403D-989F-A19A4CAA9615}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
