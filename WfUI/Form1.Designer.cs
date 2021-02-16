@@ -35,13 +35,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxRenk = new System.Windows.Forms.ComboBox();
+            this.cbxMarka = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxAciklama = new System.Windows.Forms.TextBox();
+            this.tbxDailyPrice = new System.Windows.Forms.TextBox();
+            this.tbxModelYear = new System.Windows.Forms.TextBox();
+            this.tbxModel = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -115,13 +115,13 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Controls.Add(this.comboBox2);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.cbxRenk);
+            this.tabPage2.Controls.Add(this.cbxMarka);
             this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.textBox6);
-            this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.tbxAciklama);
+            this.tabPage2.Controls.Add(this.tbxDailyPrice);
+            this.tabPage2.Controls.Add(this.tbxModelYear);
+            this.tabPage2.Controls.Add(this.tbxModel);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label9);
@@ -136,6 +136,7 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "İsim";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // dataGridView2
             // 
@@ -146,21 +147,21 @@
             this.dataGridView2.TabIndex = 5;
             this.dataGridView2.Text = "dataGridView2";
             // 
-            // comboBox2
+            // cbxRenk
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(160, 246);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(162, 23);
-            this.comboBox2.TabIndex = 4;
+            this.cbxRenk.FormattingEnabled = true;
+            this.cbxRenk.Location = new System.Drawing.Point(160, 246);
+            this.cbxRenk.Name = "cbxRenk";
+            this.cbxRenk.Size = new System.Drawing.Size(162, 23);
+            this.cbxRenk.TabIndex = 4;
             // 
-            // comboBox1
+            // cbxMarka
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(160, 208);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(162, 23);
-            this.comboBox1.TabIndex = 4;
+            this.cbxMarka.FormattingEnabled = true;
+            this.cbxMarka.Location = new System.Drawing.Point(160, 208);
+            this.cbxMarka.Name = "cbxMarka";
+            this.cbxMarka.Size = new System.Drawing.Size(162, 23);
+            this.cbxMarka.TabIndex = 4;
             // 
             // button2
             // 
@@ -170,38 +171,39 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Araç Ekle";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox6
+            // tbxAciklama
             // 
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.Location = new System.Drawing.Point(160, 359);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(162, 27);
-            this.textBox6.TabIndex = 2;
+            this.tbxAciklama.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxAciklama.Location = new System.Drawing.Point(160, 359);
+            this.tbxAciklama.Name = "tbxAciklama";
+            this.tbxAciklama.Size = new System.Drawing.Size(162, 27);
+            this.tbxAciklama.TabIndex = 2;
             // 
-            // textBox5
+            // tbxDailyPrice
             // 
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.Location = new System.Drawing.Point(160, 319);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(162, 27);
-            this.textBox5.TabIndex = 2;
+            this.tbxDailyPrice.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxDailyPrice.Location = new System.Drawing.Point(160, 319);
+            this.tbxDailyPrice.Name = "tbxDailyPrice";
+            this.tbxDailyPrice.Size = new System.Drawing.Size(162, 27);
+            this.tbxDailyPrice.TabIndex = 2;
             // 
-            // textBox4
+            // tbxModelYear
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(160, 285);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(162, 27);
-            this.textBox4.TabIndex = 2;
+            this.tbxModelYear.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxModelYear.Location = new System.Drawing.Point(160, 285);
+            this.tbxModelYear.Name = "tbxModelYear";
+            this.tbxModelYear.Size = new System.Drawing.Size(162, 27);
+            this.tbxModelYear.TabIndex = 2;
             // 
-            // textBox1
+            // tbxModel
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(160, 169);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 27);
-            this.textBox1.TabIndex = 2;
+            this.tbxModel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxModel.Location = new System.Drawing.Point(160, 169);
+            this.tbxModel.Name = "tbxModel";
+            this.tbxModel.Size = new System.Drawing.Size(162, 27);
+            this.tbxModel.TabIndex = 2;
             // 
             // label11
             // 
@@ -318,6 +320,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -339,13 +342,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxRenk;
+        private System.Windows.Forms.ComboBox cbxMarka;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxAciklama;
+        private System.Windows.Forms.TextBox tbxDailyPrice;
+        private System.Windows.Forms.TextBox tbxModelYear;
+        private System.Windows.Forms.TextBox tbxModel;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
