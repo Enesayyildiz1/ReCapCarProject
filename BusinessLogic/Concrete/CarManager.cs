@@ -1,6 +1,8 @@
 ﻿using BusinessLogic.Abstract;
 using BusinessLogic.Constants;
 using BusinessLogic.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -20,16 +22,10 @@ namespace BusinessLogic.Concrete
         {
             _carDal = carDal;
         }
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            CarValidator carValidator = new CarValidator();
-            var result = carValidator.Validate(car);
-            if (result.Errors.Count > 0)
-            {
-                return new ErrorResult(Messages.CarNameInvalid);
-               // Console.WriteLine(result.Errors.FirstOrDefault().ToString());
-
-            }
+            
              _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
             
