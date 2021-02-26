@@ -12,6 +12,6 @@ namespace BusinessLogic.ValidationRules.FluentValidation
         {
             RuleFor(p => p.DailyPrice).GreaterThan(0).WithMessage("Günlük ücret 0 olamaz!");
             RuleFor(p => p.Name.Length).GreaterThan(2).WithMessage("Araba adı uzunluğu 2 karakterde büyük olmalı");
-        }  
+                    }  
     }
 }
