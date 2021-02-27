@@ -54,9 +54,9 @@ namespace Core.Utilities.FileHelper
                + DateTime.Now.Minute + "_"
                + DateTime.Now.Hour + fileExtension;
 
-            //string path = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).FullName + @"\Images");
+           
 
-            string path = Environment.CurrentDirectory + @"\wwwroot\uploads";
+            string path = Environment.CurrentDirectory + @"\wwwroot\images";
 
             string result = $@"{path}\{creatingUniqueFilename}";
 
