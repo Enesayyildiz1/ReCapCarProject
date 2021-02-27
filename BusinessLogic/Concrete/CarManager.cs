@@ -18,24 +18,22 @@ namespace BusinessLogic.Concrete
     public class CarManager : ICarService
     {
         private ICarDal _carDal;
-        private IBrandService _brandService;
+       // private IBrandService _brandService;
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
+           
         }
 
-        public CarManager(IBrandService brandService)
-        {
-            _brandService = brandService;
-        }
+      
 
 
 
 
-        [ValidationAspect(typeof(CarValidator))]
+         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            IResult result = BusinessRules.Run(CheckIfCarCountOfBrandCorrect(car.BrandId), NotAddedSameCarsName(car.Name), CheckBrandCountInDatabase());
+           IResult result = BusinessRules.Run(CheckIfCarCountOfBrandCorrect(car.BrandId), NotAddedSameCarsName(car.Name));
 
 
 
@@ -101,14 +99,14 @@ namespace BusinessLogic.Concrete
             }
             return new SuccessResult();
         }
-        private IResult CheckBrandCountInDatabase()
-        {
-            var markasayisi = _brandService.GetAll().Data.Count();
-            if (markasayisi > 15)
-            {
-                return new ErrorResult("Marka sayısı 15 den fazla olduğu için araç eklenemedi");
-            }
-            return new SuccessResult();
-        }
+        //private IResult CheckBrandCountInDatabase()
+        //{
+        //    var markasayisi = _brandService.GetAll().Data.Count();
+        //    if (markasayisi > 15)
+        //    {
+        //        return new ErrorResult("Marka sayısı 15 den fazla olduğu için araç eklenemedi");
+        //    }
+        //    return new SuccessResult();
+        //}
     }
 }
