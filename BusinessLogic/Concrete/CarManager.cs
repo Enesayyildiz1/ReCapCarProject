@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.Abstract;
+using BusinessLogic.BusinessAspects.Autofac;
 using BusinessLogic.Constants;
 using BusinessLogic.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -29,7 +30,7 @@ namespace BusinessLogic.Concrete
 
 
 
-
+        [SecuredOperation("product.add,admin")]
          [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
