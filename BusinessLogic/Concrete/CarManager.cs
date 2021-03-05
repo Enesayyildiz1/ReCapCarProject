@@ -2,6 +2,9 @@
 using BusinessLogic.BusinessAspects.Autofac;
 using BusinessLogic.Constants;
 using BusinessLogic.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transcation;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Business;
@@ -30,8 +33,9 @@ namespace BusinessLogic.Concrete
 
 
 
-        [SecuredOperation("product.add,admin")]
+        [SecuredOperation("admin")]
          [ValidationAspect(typeof(CarValidator))]
+         [CacheRemoveAspect("ICarService.GetAll")]
         public IResult Add(Car car)
         {
            IResult result = BusinessRules.Run(CheckIfCarCountOfBrandCorrect(car.BrandId), NotAddedSameCarsName(car.Name));
@@ -57,7 +61,8 @@ namespace BusinessLogic.Concrete
             _carDal.Delete(car);
             return new SuccessResult("Araç silindi.");
         }
-
+        [CacheAspect]
+        [PerformanceScopeAspect(1)]
         public IDataResult<List<Car>> GetAll()
         {
             if (DateTime.Now.Hour == 11)
@@ -66,7 +71,7 @@ namespace BusinessLogic.Concrete
             }
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), true, "Araçlar Listelendi.");
         }
-
+        [CacheAspect]
         public IDataResult<Car> GetById(int carId)
         {
             return new SuccessDataResult<Car>(_carDal.Get(p => p.Id == carId));
@@ -75,6 +80,17 @@ namespace BusinessLogic.Concrete
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
+        }
+        [TransactionScopeAspect]
+        public IResult TransactionalOperation(Car car)
+        {
+            Add(car);
+            if (car.DailyPrice<100)
+            {
+                throw new Exception();
+            }
+            Add(car);
+            return null;
         }
 
         public IResult Update(Car car)

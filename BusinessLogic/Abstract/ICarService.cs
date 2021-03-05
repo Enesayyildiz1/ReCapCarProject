@@ -15,5 +15,6 @@ namespace BusinessLogic.Abstract
         IResult Delete(Car car);
         IResult Update(Car car);
         public IDataResult<List<CarDetailDto>> GetCarDetails();
+        IResult TransactionalOperation(Car car);
     }
 }
