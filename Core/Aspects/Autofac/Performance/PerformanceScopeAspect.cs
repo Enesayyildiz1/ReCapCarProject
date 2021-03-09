@@ -43,7 +43,7 @@ namespace Core.Aspects.Autofac.Performance
                 mailMessage.Body = "Performance:" + invocation.Method.DeclaringType.FullName + invocation.Method.Name + "-->" + _stopwatch.Elapsed.TotalSeconds;
                 istemci.Send(mailMessage);
             }
-            _stopwatch.Reset();
+            _stopwatch.Reset(); 
          
         }
     }
