@@ -38,8 +38,9 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("getimagesbycarid")]
-        public IActionResult GetImagesByCarId([FromForm(Name = ("CarId"))] int carId)
-        {
+        public IActionResult GetImagesByCarId(int carId)
+        {//C:\Users\Enes\source\repos\ReCapCarProjectt\WebAPI\wwwroot\uploads\002c73e6-aa22-4386-8748-c9913a650685_99_15_17.jfif
+
             var result = _carImagesService.GetByCarId(carId);
             if (result.Success)
             {

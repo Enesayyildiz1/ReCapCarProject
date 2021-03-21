@@ -103,7 +103,7 @@ namespace BusinessLogic.Concrete
         private List<CarImage> CheckIfCarImageNull(int id)
         {
 
-            string path = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).FullName + @"BusinessLogic\Images\logoo.jfif");
+            string path = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).FullName + @"\BusinessLogic\Images\logoo.jfif");
             var result = _carImageDal.GetAll(c => c.CarId == id).Any();
             if (!result)
             {

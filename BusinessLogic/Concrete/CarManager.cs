@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace BusinessLogic.Concrete
 {
@@ -61,16 +62,28 @@ namespace BusinessLogic.Concrete
             _carDal.Delete(car);
             return new SuccessResult("Araç silindi.");
         }
-        [CacheAspect]
-        [PerformanceScopeAspect(1)]
+       // [CacheAspect]
+        //[PerformanceScopeAspect(1)]
+        
         public IDataResult<List<Car>> GetAll()
-        {
+        {Thread.Sleep(2000);
             if (DateTime.Now.Hour == 11)
             {
                 return new ErrorDataResult<List<Car>>("Sistem kapalı");
             }
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), true, "Araçlar Listelendi.");
         }
+
+        public IDataResult<List<CarDetailDto>> GetByBrandId(int brandId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(p => p.BrandId == brandId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetByColorId(int colorId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(p => p.ColorId == colorId));
+        }
+
         [CacheAspect]
         public IDataResult<Car> GetById(int carId)
         {

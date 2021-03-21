@@ -10,11 +10,14 @@ namespace BusinessLogic.Abstract
     public interface ICarService
     {
         IDataResult< List<Car>> GetAll();
+        
         IDataResult<Car> GetById (int carId);
         IResult Add(Car car);
         IResult Delete(Car car);
         IResult Update(Car car);
         public IDataResult<List<CarDetailDto>> GetCarDetails();
         IResult TransactionalOperation(Car car);
+        IDataResult<List<CarDetailDto>> GetByColorId(int colorId);
+        IDataResult<List<CarDetailDto>> GetByBrandId(int brandId);
     }
 }

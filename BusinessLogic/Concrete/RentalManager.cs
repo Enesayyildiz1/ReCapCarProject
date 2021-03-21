@@ -2,6 +2,7 @@
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,9 +19,9 @@ namespace BusinessLogic.Concrete
 
         public IResult Add(Rental rental)
         {
-           
-            if (rental.ReturnDate==null && _rentalDal.GetCarDetails(n=>n.CarId==rental.CarId).Count>0)
-              
+
+            if (rental.ReturnDate == null && _rentalDal.GetRentalDetails(n => n.CarId == rental.CarId).Count > 0)
+
             {
                 return new ErrorResult("Araç şuan kiralanamaz");
             }
@@ -48,5 +49,9 @@ namespace BusinessLogic.Concrete
         {
             throw new NotImplementedException();
         }
+        public IDataResult<List<RentalDetailDto>> GetRentalDetails()
+        {
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails());
+        }
     }
-}
+    }
