@@ -55,11 +55,11 @@ namespace WebAPI.Controllers
         public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
         {
            
-            if (!Directory.Exists(_webHostEnvironment.WebRootPath + "\\images\\"))
+            if (!Directory.Exists(_webHostEnvironment.WebRootPath + "\\uploads\\"))
             {
-                Directory.CreateDirectory(_webHostEnvironment.WebRootPath + "\\images\\");
+                Directory.CreateDirectory(_webHostEnvironment.WebRootPath + "\\uploads\\");
             }
-            using (FileStream fs = System.IO.File.Create(_webHostEnvironment.WebRootPath + "\\images\\" + file.FileName))
+            using (FileStream fs = System.IO.File.Create(_webHostEnvironment.WebRootPath + "\\uploads\\" + file.FileName))
             {
                 file.CopyTo(fs);
                 fs.Flush();

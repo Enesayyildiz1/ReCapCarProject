@@ -19,5 +19,7 @@ namespace BusinessLogic.Abstract
         IResult TransactionalOperation(Car car);
         IDataResult<List<CarDetailDto>> GetByColorId(int colorId);
         IDataResult<List<CarDetailDto>> GetByBrandId(int brandId);
+        IDataResult<List<CarDetailDto>> GetByCarId(int carId);
+        IDataResult<List<CarDetailDto>> GetByColorAndBrandId(int colorId, int brandId);
     }
 }

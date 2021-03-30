@@ -79,6 +79,16 @@ namespace BusinessLogic.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(p => p.BrandId == brandId));
         }
 
+        public IDataResult<List<CarDetailDto>> GetByCarId(int carId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(p => p.Id == carId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetByColorAndBrandId(int colorId, int brandId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(p => p.BrandId == brandId&&p.ColorId==colorId));
+        }
+
         public IDataResult<List<CarDetailDto>> GetByColorId(int colorId)
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(p => p.ColorId == colorId));
@@ -120,6 +130,9 @@ namespace BusinessLogic.Concrete
             }
             return new SuccessResult();
         }
+
+      
+
         private IResult NotAddedSameCarsName(string carname)
         {
             var ayniisim = _carDal.GetAll(p => p.Name == carname).ToList();
