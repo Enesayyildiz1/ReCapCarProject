@@ -5,6 +5,7 @@ using Entities.Concrete;
 using Entities.Dtos;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BusinessLogic.Concrete
@@ -48,6 +49,16 @@ namespace BusinessLogic.Concrete
         public IResult Update(Rental rental)
         {
             throw new NotImplementedException();
+        }
+        public IResult RentalCarControl(int carId)
+        {
+            var result = _rentalDal.GetAll(r => r.CarId == carId ).Any();
+            if (result)
+            {
+                return new ErrorResult("Araç teslim edilmedi");
+            }
+
+            return new SuccessResult();
         }
         public IDataResult<List<RentalDetailDto>> GetRentalDetails()
         {

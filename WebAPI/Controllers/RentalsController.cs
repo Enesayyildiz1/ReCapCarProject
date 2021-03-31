@@ -60,6 +60,12 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("getcarcontrol")]
+        public IActionResult GetCarControl(int carId)
+        {
+            var result = _rentalService.RentalCarControl(carId);
+            return Ok(result);
+        }
         [HttpPost("delete")]
         public IActionResult Delete(Rental rental)
         {

@@ -15,5 +15,6 @@ namespace BusinessLogic.Abstract
         IResult Delete(Rental rental);
         IResult Update(Rental rental);
         public IDataResult<List<RentalDetailDto>> GetRentalDetails();
+        IResult RentalCarControl(int carId);
     }
 }
