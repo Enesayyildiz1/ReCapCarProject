@@ -32,9 +32,9 @@ namespace BusinessLogic.Concrete
             return new SuccessDataResult<FakeCard>(_fakeCardDal.Get(c => c.Id == carId));
         }
 
-        public IResult IsCardExist(FakeCard fakeCard)
+        public IResult IsCardExist(string cardNumber)
         {
-            var result = _fakeCardDal.Get(c => c.NameOnTheCard == fakeCard.NameOnTheCard && c.CardNumber == fakeCard.CardNumber && c.CardCvv == fakeCard.CardCvv);
+            var result = _fakeCardDal.Get( c=>c.CardNumber == cardNumber);
             if (result == null)
             {
                 return new ErrorResult();

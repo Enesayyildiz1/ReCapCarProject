@@ -86,10 +86,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("iscardexist")]
-        public IActionResult IsCardExist(FakeCard fakeCard)
+        [HttpGet("iscardexist")]
+        public IActionResult IsCardExist(string cardNumber)
         {
-            var result = _fakeCardService.IsCardExist(fakeCard);
+            var result = _fakeCardService.IsCardExist(cardNumber);
             if (result.Success)
             {
                 return Ok(result);

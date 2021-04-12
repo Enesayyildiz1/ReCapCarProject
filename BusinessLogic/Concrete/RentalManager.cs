@@ -38,7 +38,9 @@ namespace BusinessLogic.Concrete
 
         public IDataResult<List<Rental>> GetAll()
         {
-            throw new NotImplementedException();
+            _rentalDal.GetAll();
+            return new SuccessDataResult<List<Rental>>("Araç başarıyla listelendi");
+
         }
 
         public IDataResult<Rental> GetById(int id)
