@@ -32,5 +32,10 @@ namespace BusinessLogic.Concrete
         {
             return _userDal.Get(u => u.Email == email);
         }
+
+        public List<User> GetAll()
+        {
+            return _userDal.GetAll();
+        }
     }
 }

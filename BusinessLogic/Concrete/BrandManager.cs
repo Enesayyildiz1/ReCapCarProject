@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.Abstract;
+using BusinessLogic.BusinessAspects.Autofac;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
@@ -16,7 +17,7 @@ namespace BusinessLogic.Concrete
         {
             _brandDal = brandDal;
         }
-
+        [SecuredOperation("admin")]
         public IResult Add(Brand brand)
         {
             _brandDal.Add(brand);
@@ -44,7 +45,7 @@ namespace BusinessLogic.Concrete
 
         public IResult Update(Brand brand)
         {
-            _brandDal.Add(brand);
+            _brandDal.Update(brand);
             return new SuccessResult("Marka başarıyla güncellendi");
         }
     }

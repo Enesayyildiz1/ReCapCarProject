@@ -30,16 +30,16 @@ namespace BusinessLogic.Concrete
            
         }
 
-      
 
 
 
-        [SecuredOperation("admin")]
-         [ValidationAspect(typeof(CarValidator))]
-         [CacheRemoveAspect("ICarService.GetAll")]
+
+       [SecuredOperation("admin")]
+        [ValidationAspect(typeof(CarValidator))]
+        [CacheRemoveAspect("ICarService.GetAll")]
         public IResult Add(Car car)
         {
-           IResult result = BusinessRules.Run(CheckIfCarCountOfBrandCorrect(car.BrandId), NotAddedSameCarsName(car.Name));
+            IResult result = BusinessRules.Run(CheckIfCarCountOfBrandCorrect(car.BrandId), NotAddedSameCarsName(car.Name));
 
 
 

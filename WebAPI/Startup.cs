@@ -85,8 +85,9 @@ namespace WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors(builder => builder.AllowAnyOrigin());
-
+            app.ConfigureCustomExceptionMiddleware();
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyOrigin());
+           
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseRouting();
