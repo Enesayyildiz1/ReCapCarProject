@@ -20,6 +20,7 @@ namespace BusinessLogic.Concrete
 
         public IResult Add(Rental rental)
         {
+            rental.RentDate = DateTime.Now;
 
             if (rental.ReturnDate == null && _rentalDal.GetRentalDetails(n => n.CarId == rental.CarId).Count > 0)
 

@@ -7,81 +7,106 @@ using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Core.Entities.Concrete;
+using Entities.Dtos;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-   
+    
+        [Route("api/[controller]")]
+        [ApiController]
+        public class UsersController : ControllerBase
+        {
+            IUserService _userManager;
+            public UsersController(IUserService userManager)
+            {
+                _userManager = userManager;
+            }
 
-    public class UsersController : ControllerBase
-    {
-        //IUserService _userService;
+            //---GET
+            [HttpGet("getall")]
+            public IActionResult GetAll()
+            {
+                var result = _userManager.GetAll();
+                if (result.Success) { return Ok(result); }
+                return BadRequest(result);
+            }
+            [HttpGet("getclaims")]
+            public IActionResult GetClaims(User user)
+            {
+                var result = _userManager.GetClaims(user);
+                if (result.Success)
+                {
+                    return Ok(result);
+                }
+                return BadRequest(result);
+            }
 
-        //public UsersController(IUserService userService)
-        //{
-        //    _userService = userService;
-        //}
-        //[HttpGet("getall")]
+            [HttpGet("getclaimsbyuserid")]
+            public IActionResult GetClaimsByUserId(int userId)
+            {
+                var result = _userManager.GetClaimById(userId);
+                if (result.Success)
+                {
+                    return Ok(result);
+                }
+                return BadRequest(result);
+            }
 
-        //public IActionResult GetAll()
-        //{
+            [HttpGet("getbyuserid")]
+            public IActionResult GetByCustomerId(int userId)
+            {
+                var result = _userManager.GetByUserId(userId);
+                if (result.Success) { return Ok(result); }
+                return BadRequest(result);
+            }
 
-        //    var result = _userService.GetAll();
-        //    if (result.Success)
-        //    {
-        //        return Ok(result);
+            [HttpGet("getbyemail")]
+            public IActionResult GetById(string email)
+            {
+                var result = _userManager.GetByEmail(email);
+                if (result.Success)
+                {
+                    return Ok(result);
+                }
+                return BadRequest(result);
+            }
 
-        //    }
-        //    return BadRequest(result);
+            [HttpPost("edit")]
+            public IActionResult EditProfile(UserUpdateDto user)
+            {
+                var result = _userManager.EditProfile(user);
+                if (result.Success)
+                {
+                    return Ok(result);
+                }
+                return BadRequest(result);
+            }
 
-        //}
-        //[HttpGet("getbyid")]
+            //---POST
+            [HttpPost("add")]
+            public IActionResult Add(User user)
+            {
+                var result = _userManager.Add(user);
+                if (result.Success) { return Ok(result); }
+                return BadRequest(result);
+            }
 
-        //public IActionResult GetById(int id)
-        //{
+            [HttpPost("delete")]
+            public IActionResult Delete(User user)
+            {
+                var result = _userManager.Delete(user);
+                if (result.Success) { return Ok(result); }
+                return BadRequest(result);
+            }
 
-        //    var result = _userService.GetById(id);
-        //    if (result.Success)
-        //    {
-        //        return Ok(result);
+            [HttpPost("update")]
+            public IActionResult Update(User user)
+            {
+                var result = _userManager.Update(user);
+                if (result.Success) { return Ok(result); }
+                return BadRequest(result);
+            }
 
-        //    }
-        //    return BadRequest(result);
-
-        //}
-        //[HttpPost("add")]
-        //public IActionResult Add(User user)
-        //{
-        //    var result = _userService.Add(user);
-        //    if (result.Success)
-        //    {
-        //        return Ok(result);
-
-        //    }
-        //    return BadRequest(result);
-        //}
-        //[HttpPost("delete")]
-        //public IActionResult Delete(User user)
-        //{
-        //    var result = _userService.Delete(user);
-        //    if (result.Success)
-        //    {
-        //        return Ok(result);
-
-        //    }
-        //    return BadRequest(result);
-        //}
-        //[HttpPost("update")]
-        //public IActionResult Update(User user)
-        //{
-        //    var result = _userService.Update(user);
-        //    if (result.Success)
-        //    {
-        //        return Ok(result);
-
-        //    }
-        //    return BadRequest(result);
-        //}
+        }
     }
-}
+

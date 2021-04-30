@@ -35,6 +35,8 @@ namespace BusinessLogic.DependencyResolvers.Autofac
             builder.RegisterType<FakeCardManager>().As<IFakeCardService>().SingleInstance();
             builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
             builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
+           
+          
 
             builder.RegisterType<EfColorDal>().As<IColorDal>().SingleInstance();
             builder.RegisterType<UserManager>().As<IUserService>();

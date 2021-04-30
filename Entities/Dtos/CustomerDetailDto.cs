@@ -1,14 +1,14 @@
-﻿using Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Concrete
+namespace Entities.Dtos
 {
-    public class Customer:IEntity
+    public class CustomerDetailDto
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string CompanyName { get; set; }
         public int Findeks { get; set; }
     }
