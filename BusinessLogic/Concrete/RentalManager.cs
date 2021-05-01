@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.Abstract;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -13,20 +14,29 @@ namespace BusinessLogic.Concrete
     public class RentalManager : IRentalService
     {
         private IRentalDal _rentalDal;
-        public RentalManager(IRentalDal rentalDal)
+        private ICarDal _carDal;
+        private ICustomerDal _customerDal;
+        public RentalManager(IRentalDal rentalDal, ICarDal carDal, ICustomerDal customerDal)
         {
             _rentalDal = rentalDal;
+            _carDal = carDal;
+            _customerDal = customerDal;
         }
 
         public IResult Add(Rental rental)
         {
-            rental.RentDate = DateTime.Now;
-
-            if (rental.ReturnDate == null && _rentalDal.GetRentalDetails(n => n.CarId == rental.CarId).Count > 0)
-
+           
+            IResult result = BusinessRules.Run(CheckFindexPuanIsEnough(rental.CarId,rental.CustomerId), CheckIsAlreadyRented(rental));
+            if (result!=null)
             {
-                return new ErrorResult("Araç şuan kiralanamaz");
+                return new ErrorResult();
             }
+            var car = _carDal.Get(x => x.Id == rental.CarId);
+            var customer = _customerDal.Get(x => x.Id == rental.CustomerId);
+            customer.Findeks = customer.Findeks + car.FindeksScore;
+            _customerDal.Update(customer);
+
+            rental.RentDate = DateTime.Now;
             _rentalDal.Add(rental);
             return new SuccessResult("Araç başarıyla kiralandı");
         }
@@ -66,6 +76,31 @@ namespace BusinessLogic.Concrete
         public IDataResult<List<RentalDetailDto>> GetRentalDetails()
         {
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails());
+        }
+        public IResult CheckFindexPuanIsEnough(int carId,int customerId)
+        {
+            int aracFindeks = _carDal.Get(x => x.Id == carId).FindeksScore;           
+           
+            int customerFindeks = _customerDal.Get(x => x.Id == customerId).Findeks;
+           
+
+            if (customerFindeks < aracFindeks)
+            {
+                return new ErrorResult("Yetersiz findeks puanı");
+            }
+
+            return new SuccessResult();
+        }
+        private IResult CheckIsAlreadyRented(Rental rental)
+
+        {
+            if (rental.ReturnDate == null && _rentalDal.GetRentalDetails(n => n.CarId == rental.CarId).Count > 0)
+
+            {
+                return new ErrorResult("Araç şuan kiralanamaz");
+            }
+            
+            return new SuccessResult();
         }
     }
     }

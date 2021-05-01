@@ -10,9 +10,9 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            ICarService carManager = new CarManager(new EfCarDal());
-            ICarImageService carImageService = new CarImageManager(new EfCarImageDal());
-            
+            //ICarService carManager = new CarManager(new EfCarDal());
+            //ICarImageService carImageService = new CarImageManager(new EfCarImageDal());
+
             //IBrandService brandManager = new BrandManager(new EfBrandDal());
             //IRentalService rentalManager = new RentalManager(new EfRentalDal());
             //Rental rental = new Rental()
@@ -24,25 +24,26 @@ namespace ConsoleUI
             //};
             //var result=rentalManager.Add(rental);
             //Console.WriteLine(result.Message);
-            var listofcar = carManager.GetAll().Data;
-            foreach (var item in listofcar)
-            {
-                Console.WriteLine(item.Name);
-            }
-            Console.WriteLine("--------------");
-            var listofimage = carImageService.GetAll().Data;
-            foreach (var imagge in listofimage)
-            {
-                Console.WriteLine(imagge.ImagePath);
-            }
-            CarImage image = new CarImage()
-            {
-                CarId = 3,
-                Date = DateTime.Now,
-                ImagePath = "C:\\Users\\Enes\\OneDrive\\Masaüstü\\morhpeus.jpg"
+            //var listofcar = carManager.GetAll().Data;
+            //foreach (var item in listofcar)
+            //{
+            //    Console.WriteLine(item.Name);
+            //}
+            //Console.WriteLine("--------------");
+            //var listofimage = carImageService.GetAll().Data;
+            //foreach (var imagge in listofimage)
+            //{
+            //    Console.WriteLine(imagge.ImagePath);
+            //}
+            //CarImage image = new CarImage()
+            //{
+            //    CarId = 3,
+            //    Date = DateTime.Now,
+            //    ImagePath = "C:\\Users\\Enes\\OneDrive\\Masaüstü\\morhpeus.jpg"
 
-            };
-            
+            //};
+            IRentalService rentalManager = new RentalManager(new EfRentalDal(),new EfCarDal(),new EfCustomerDal());
+            rentalManager.CheckFindexPuanIsEnough(2, 1);
             
                
                 

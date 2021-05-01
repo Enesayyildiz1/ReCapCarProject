@@ -16,5 +16,7 @@ namespace BusinessLogic.Abstract
         IResult Update(Rental rental);
         public IDataResult<List<RentalDetailDto>> GetRentalDetails();
         IResult RentalCarControl(int carId);
-    }
+        public  IResult CheckFindexPuanIsEnough(int carId, int customerId);
+        
+        }
 }
