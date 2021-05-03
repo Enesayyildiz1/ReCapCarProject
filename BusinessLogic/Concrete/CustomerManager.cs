@@ -32,9 +32,19 @@ namespace BusinessLogic.Concrete
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(), "Müşteriler listelendi");
         }
 
+        public IDataResult<Customer> GetByEmail(string email)
+        {
+            return new SuccessDataResult<Customer>(_customerDal.Get(x => x.Email == email), "Id ile belirtilen müşteri başarıyla listelendi");
+        }
+
         public IDataResult<Customer> GetById(int id)
         {
             return new SuccessDataResult<Customer>(_customerDal.Get(x => x.Id == id), "Id ile belirtilen müşteri başarıyla listelendi");
+        }
+
+        public IDataResult<Customer> GetByUserId(int userId)
+        {
+            return new SuccessDataResult<Customer>(_customerDal.Get(x => x.UserId == userId), "Id ile belirtilen müşteri başarıyla listelendi");
         }
 
         public IResult Update(Customer customer)

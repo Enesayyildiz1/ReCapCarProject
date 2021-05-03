@@ -29,7 +29,7 @@ namespace BusinessLogic.Concrete
             IResult result = BusinessRules.Run(CheckFindexPuanIsEnough(rental.CarId,rental.CustomerId), CheckIsAlreadyRented(rental));
             if (result!=null)
             {
-                return new ErrorResult();
+                return new ErrorResult(result.Message);
             }
             var car = _carDal.Get(x => x.Id == rental.CarId);
             var customer = _customerDal.Get(x => x.Id == rental.CustomerId);
@@ -94,7 +94,8 @@ namespace BusinessLogic.Concrete
         private IResult CheckIsAlreadyRented(Rental rental)
 
         {
-            if (rental.ReturnDate == null && _rentalDal.GetRentalDetails(n => n.CarId == rental.CarId).Count > 0)
+            var result = _rentalDal.GetAll(n => n.CarId == rental.CarId).Count;
+            if (result > 0)
 
             {
                 return new ErrorResult("Araç şuan kiralanamaz");

@@ -27,7 +27,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  on p.ColorId equals c.Id
 
                                  select new CarDetailDto
-                                 { Id = p.Id, Name = p.Name, ColorId = p.ColorId, BrandId = p.BrandId, BrandName = b.Name, ColorName = c.Name, ModelYear = p.ModelYear, DailyPrice = p.DailyPrice, Description = p.Descriptions };
+                                 { Id = p.Id, Name = p.Name, ColorId = p.ColorId, BrandId = p.BrandId, BrandName = b.Name, ColorName = c.Name, ModelYear = p.ModelYear, DailyPrice = p.DailyPrice, Description = p.Descriptions,FindeksScore=p.FindeksScore };
                     return result.ToList();
                 }
                 else
@@ -40,7 +40,7 @@ namespace DataAccess.Concrete.EntityFramework
                                      on p.ColorId equals c.Id
 
                                      select new CarDetailDto
-                                     { Id = p.Id, Name = p.Name, ColorId = p.ColorId, BrandId = p.BrandId, BrandName = b.Name, ColorName = c.Name, ModelYear = p.ModelYear, DailyPrice = p.DailyPrice, Description = p.Descriptions };
+                                     { Id = p.Id, Name = p.Name, ColorId = p.ColorId, BrandId = p.BrandId, BrandName = b.Name, ColorName = c.Name, ModelYear = p.ModelYear, DailyPrice = p.DailyPrice, Description = p.Descriptions, FindeksScore = p.FindeksScore };
                         return result.Where(filter).ToList();
                     }
 
