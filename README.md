@@ -33,13 +33,13 @@ Bir framework katmanı olan Core Katmanı'nda DataAccess, Entities, Utilities ol
 
 # Data Access Katmanı
 Veritabanı CRUD işlemleri gerçekleştirmek için oluşturulan Data Access Katmanı'nda Abstract ve Concrete olmak üzere iki adet klasör bulunmaktadır.Abstract klasörü soyut nesneleri, Concrete klasörü ise somut nesneleri tutmak için oluşturulmuştur. <br/>
-![DataAccessLayer](https://user-images.githubusercontent.com/76704724/115159433-bf03bb80-a09b-11eb-9d8a-c7ec8a9e986e.PNG) <br/>
+![DataAccessLayer](https://user-images.githubusercontent.com/66443194/143625319-889044a4-1c60-49b2-b5f9-bc6294a18de3.PNG) <br/>
 
 
 ## Entities Katmanı
 
 Veritabanı nesneleri için oluşturulmuş Entities Katmanı'nda Abstract ve Concrete olmak üzere iki adet klasör bulunmaktadır.Abstract klasörü soyut nesneleri, Concrete klasörü somut nesneleri tutmak için oluşturulmuştur. <br/>
-![EntitiesLayer](https://user-images.githubusercontent.com/76704724/115159584-8c0df780-a09c-11eb-937e-ed861a850ddc.PNG)  <br/>
+![EntitiesLayer](https://user-images.githubusercontent.com/66443194/143625321-4a9a3b41-7ed3-4c32-8a41-71b0dbcb6f00.PNG)  <br/>
 
 ## UIConsole Katmanı
 Kodların doğru çalıştığını görmek için kullandığımız katman test katmanı da diyebiliriz. <br/><br/>
@@ -48,5 +48,5 @@ Kodların doğru çalıştığını görmek için kullandığımız katman test 
 
 ## WepAPI Katmanı
 Tüm kodların birleşip web sayfasına yansıtıldığı katmandır <br/>
-![WebApiLayer](https://user-images.githubusercontent.com/76704724/115159854-e52a5b00-a09d-11eb-8e2f-c9be0a9b8a79.PNG) <br/>
-![WebApiLayer01](https://user-images.githubusercontent.com/76704724/115160775-bebaee80-a0a2-11eb-92c6-df6529b895ea.PNG)
+![WebApiLayer](https://user-images.githubusercontent.com/66443194/143625322-1c40ee6d-0c75-442a-a7b1-9f2bc36da472.PNG) <br/>
+
