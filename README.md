@@ -49,4 +49,118 @@ Kodların doğru çalıştığını görmek için kullandığımız katman test 
 ## WepAPI Katmanı
 Tüm kodların birleşip web sayfasına yansıtıldığı katmandır <br/>
 ![WebApiLayer](https://user-images.githubusercontent.com/66443194/143625322-1c40ee6d-0c75-442a-a7b1-9f2bc36da472.PNG) <br/>
+<details>
+  <summary>Models</summary>
+  
+### Cars
+
+| Name  | Data Type | Allow Nulls | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| CarId  | Int  | False  |   |
+| BrandId  | int  | False  |   |
+| ColorId  | int  | False  |   |
+| ModelYear  | int  | False  |   |
+| DailyPrice  | int  | False  |   |
+| Description  | nvarchar(MAX)  | False  |   |
+| MinFindeksScore  | smallint  | True  | ((0))  |
+
+### Brands
+
+| Name  | Data Type | Allow Nulls | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| BrandId  | int  | False  |   |
+| BrandName  | nvarchar(MAX)  | False  |   |
+
+### Colors
+
+| Name  | Data Type | Allow Nulls | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| ColorId  | int  | False  |   |
+| ColorName  | nvarchar(MAX)  | False  |   |
+
+### Car Images
+
+| Name  | Data Type | Allow Nulls | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| CarImageId  | int  | False  |   |
+| CarId  | int  | False  |   |
+| ImagePath  | nvarchar(MAX)  | False  |   |
+| Date  | datetime  | False  |   |
+
+### Credit Cards
+
+| Name  | Data Type | Allow Nulls | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| CreditsCardsId  | int  | False  |   |
+| CustomerId  | int  | False  |   |
+| NameSurname  | nvarchar(100)  | False  |   |
+| CardNumber  | nvarchar(25)  | False  |   |
+| ExpMonth  | tinyint  | False  |   |
+| ExpYear  | tinyint  | False  |   |
+| Cvc  | nvarchar(3)  | False  |   |
+| CardType  | nvarchar(20)  | False  |   |
+
+### Customers
+
+| Name  | Data Type | Allow Nulls | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| CustomerId  | int  | False  |   |
+| UserId  | int  | False  |   |
+| CompanyName  | nvarchar(MAX)  | False  |   |
+
+### Findeks
+
+| Name  | Data Type | Allow Nulls | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| FindeksId  | int  | False  |   |
+| CustomerId  | int  | False  |   |
+| [NationalIdentity]  | nvarchar(50)  | False  |   |
+| Score  | smallint  | False  |   |
+
+### Operation Claims
+
+| Name  | Data Type | Allow Nulls | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| OperationClaimId  | int  | False  |   |
+| Name  | nvarchar(MAX)  | False  |   |
+
+### User Operation Claims
+
+| Name  | Data Type | Allow Nulls | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| UserOperationClaimId  | int  | False  |   |
+| UserId  | int  | False  |   |
+| OperationClaimId  | int  | False  |   |
+  
+### Users
+
+| Name  | Data Type | Allow Nulls | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| UserId  | int  | False  |   |
+| FirstName  | nvarchar(MAX)  | False  |   |
+| LastName  | nvarchar(MAX)  | False  |   |
+| Email  | nvarchar(MAX)  | False  |   |
+| PasswordSalt  | varbinary(MAX)  | False  |   |
+| PasswordHash  | varbinary(MAX)  | False  |   |
+| Status  | bit  | False  |   |
+
+### Payments
+
+| Name  | Data Type | Allow Nulls | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| PaymentId  | int  | False  |   |
+| Amount  | money  | False  |   |
+
+### Rentals
+
+| Name  | Data Type | Allow Nulls | Default |
+| ------------- | ------------- | ------------- | ------------- |
+| RentalId  | int  | False  |   |
+| CarId  | int  | False  |   |
+| CustomerId  | int  | False  |   |
+| RentDate  | date  | False  |   |
+| RentDate  | date  | True  |   |
+
+
+</details>
 
