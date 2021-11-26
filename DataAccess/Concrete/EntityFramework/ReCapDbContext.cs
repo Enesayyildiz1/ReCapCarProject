@@ -11,7 +11,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=LAPTOP-7HDI1FAU;Database=CarProjectDb2;" +
+            optionsBuilder.UseSqlServer("Server=LAPTOP-9VS99FKB\\SQLEXPRESS;Database=CarProjectDb2;" +
                 "Trusted_Connection=true");
             base.OnConfiguring(optionsBuilder);
 
