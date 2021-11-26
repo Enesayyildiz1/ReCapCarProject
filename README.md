@@ -168,7 +168,7 @@ Tüm kodların birleşip web sayfasına yansıtıldığı katmandır <br/>
 # Repository klonlayın
 $ git clone https://github.com/Enesayyildiz1/ReCapCarProject.git
 # Klonladığınız klasöre gidin
-$ cd ReCapProject.git
+$ cd ReCapCarProject.git
 
 # Bağımlılıkları yükleyin
 $ dotnet restore
