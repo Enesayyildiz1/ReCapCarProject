@@ -12,7 +12,7 @@
 * ### Proje Business, DataAccess, Entities, ConsoleUI, Core, WebAPI olmak üzere 6 katmandan oluşmaktadır.
 
 ## Solution Explorer
-![SolutionExplorer](https://user-images.githubusercontent.com/76704724/115153139-252d1600-a07d-11eb-9368-f8f1166b87bd.PNG)
+![Solution Explorer](https://user-images.githubusercontent.com/66443194/143624386-61666ca8-2fd3-4b3d-b4a0-077a87c20e65.PNG)
 
 # Business Katmanı
 Business katmanında iş kodları yer alır.
