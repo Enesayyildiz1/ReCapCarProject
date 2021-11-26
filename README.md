@@ -28,8 +28,8 @@ Abstract, Business, Business Aspects, Concrete, Constants, DependencyResolvers, 
 Bir framework katmanı olan Core Katmanı'nda DataAccess, Entities, Utilities olmak üzere 3 adet klasör bulunmaktadır.DataAccess klasörü DataAccess Katmanı ile ilgili nesneleri, Entities klasörü Entities katmanı ile ilgili nesneleri tutmak için oluşturulmuştur. Core katmanının .Net Core ile hiçbir bağlantısı yoktur.Oluşturulan core katmanında ortak kodlar tutulur. Core katmanı ile, kurumsal bir yapıda, alt yapı ekibi ilgilenir.
 ![CoreLayer](https://user-images.githubusercontent.com/66443194/143625313-73ced31f-f07d-42c8-995f-121a82178617.PNG) <br/>
 ![CoreAspect](https://user-images.githubusercontent.com/66443194/143625316-790db374-7bce-4aba-a2b9-700087ffad12.PNG) <br/>
-![CoreUtilities](https://user-images.githubusercontent.com/76704724/115156186-b60aee00-a08b-11eb-8a92-34eced0a1829.PNG) <br/>
-![CoreDataAccess](https://user-images.githubusercontent.com/76704724/115156192-bf945600-a08b-11eb-9dc9-8dbf418ae00d.PNG) <br/>
+![CoreUtilities](https://user-images.githubusercontent.com/66443194/143625318-ce8e90a4-fb64-4a25-915f-d06836231ca2.PNG) <br/>
+
 
 # Data Access Katmanı
 Veritabanı CRUD işlemleri gerçekleştirmek için oluşturulan Data Access Katmanı'nda Abstract ve Concrete olmak üzere iki adet klasör bulunmaktadır.Abstract klasörü soyut nesneleri, Concrete klasörü ise somut nesneleri tutmak için oluşturulmuştur. <br/>
