@@ -163,4 +163,12 @@ Tüm kodların birleşip web sayfasına yansıtıldığı katmandır <br/>
 
 
 </details>
+```bash
+# Repository klonlayın
+$ git clone https://github.com/seyituludag0/ReCapProject.git
+# Klonladığınız klasöre gidin
+$ cd ReCapProject.git
 
+# Bağımlılıkları yükleyin
+$ dotnet restore
+```
